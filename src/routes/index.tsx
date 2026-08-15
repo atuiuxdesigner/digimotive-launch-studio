@@ -156,9 +156,9 @@ function ContactDropdown() {
         aria-expanded={open}
         aria-haspopup="menu"
         aria-controls="contact-menu"
-        className="flex shrink-0 items-center gap-2 rounded-[30px] bg-[#0B0F19] px-4 py-3 text-[15px] font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FFF] sm:px-6"
+        className="liquid-glass flex shrink-0 items-center gap-2 rounded-[30px] px-4 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-6"
       >
-        <img src={phoneIcon} alt="" aria-hidden="true" className="h-3.5 w-3.5" />
+        <img src={phoneIcon} alt="" aria-hidden="true" className="h-3.5 w-3.5 brightness-0 invert" />
         Call Now
       </button>
 
