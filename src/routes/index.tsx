@@ -1,16 +1,21 @@
+import { useState, useRef, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import orb from "@/assets/orb.svg";
 import pulse from "@/assets/pulse.svg";
 import logoMark from "@/assets/logo.svg";
 import phoneIcon from "@/assets/phone.svg";
+import whatsappIcon from "@/assets/whatsapp.svg";
 import instagramIcon from "@/assets/instagram.svg";
 import facebookIcon from "@/assets/facebook.svg";
 import twitterIcon from "@/assets/twitter.svg";
 import linkedinIcon from "@/assets/linkedin.svg";
 
-/** Change this to the real business number (E.164 recommended). */
-const PHONE_NUMBER = "+910000000000";
+/** Visible numbers and destination links. Easy to update. */
+const CALLING_NUMBER = "+91 9834540456";
+const CALLING_HREF = "tel:+919834540456";
+const WHATSAPP_NUMBER = "91  9623880889";
+const WHATSAPP_HREF = "https://wa.me/919623880889";
 
 const SOCIAL_LINKS = [
   { name: "Instagram", href: "#", icon: instagramIcon },
@@ -26,7 +31,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Digimotive, your Pune-based digital growth partner, is launching soon. Our website is under development — call us to start early.",
+          "Digimotive, your Pune-based digital growth partner, is launching soon. Call or WhatsApp us to start early.",
       },
       { property: "og:title", content: "Digimotive — Launching Soon" },
       {
@@ -53,13 +58,7 @@ function ComingSoon() {
             DIGIMOTIVE
           </span>
         </a>
-        <a
-          href={`tel:${PHONE_NUMBER}`}
-          className="flex shrink-0 items-center gap-2 rounded-[30px] bg-[#0B0F19] px-4 py-3 text-[15px] font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FFF] sm:px-6"
-        >
-          <img src={phoneIcon} alt="" aria-hidden="true" className="h-3.5 w-3.5" />
-          Call Now
-        </a>
+        <ContactDropdown />
       </header>
 
       <main className="relative flex flex-1 items-center justify-center overflow-hidden px-6 py-20 md:px-10 lg:px-20">
@@ -115,6 +114,83 @@ function ComingSoon() {
           ))}
         </ul>
       </footer>
+    </div>
+  );
+}
+
+function ContactDropdown() {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleClick = (event: MouseEvent) => {
+      if (!containerRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [open]);
+
+  return (
+    <div ref={containerRef} className="relative shrink-0">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-haspopup="menu"
+        aria-controls="contact-menu"
+        className="flex shrink-0 items-center gap-2 rounded-[30px] bg-[#0B0F19] px-4 py-3 text-[15px] font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FFF] sm:px-6"
+      >
+        <img src={phoneIcon} alt="" aria-hidden="true" className="h-3.5 w-3.5" />
+        Call Now
+      </button>
+
+      {open && (
+        <div
+          id="contact-menu"
+          role="menu"
+          aria-label="Contact options"
+          className="absolute right-0 top-[calc(100%+10px)] z-50 w-[260px] overflow-hidden rounded-[18px] border border-black/[0.06] bg-white p-2 shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
+        >
+          <a
+            href={CALLING_HREF}
+            role="menuitem"
+            className="flex items-center gap-3 rounded-[14px] px-3 py-3 transition-colors hover:bg-[#5A4FFF]/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FFF]"
+          >
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#5A4FFF]/[0.08]">
+              <img src={phoneIcon} alt="" aria-hidden="true" className="h-4 w-4" />
+            </span>
+            <span className="flex min-w-0 flex-col">
+              <span className="text-[13px] font-semibold text-[#0B0F19]">Call</span>
+              <span className="truncate text-[14px] font-medium text-[#6B7280]">{CALLING_NUMBER}</span>
+            </span>
+          </a>
+          <a
+            href={WHATSAPP_HREF}
+            role="menuitem"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3 rounded-[14px] px-3 py-3 transition-colors hover:bg-[#5A4FFF]/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FFF]"
+          >
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#25D366]/[0.10]">
+              <img src={whatsappIcon} alt="" aria-hidden="true" className="h-4 w-4" />
+            </span>
+            <span className="flex min-w-0 flex-col">
+              <span className="text-[13px] font-semibold text-[#0B0F19]">WhatsApp</span>
+              <span className="truncate text-[14px] font-medium text-[#6B7280]">{WHATSAPP_NUMBER}</span>
+            </span>
+          </a>
+        </div>
+      )}
     </div>
   );
 }
