@@ -1,4 +1,3 @@
-import { useState, useRef, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import pulse from "@/assets/pulse.svg";
@@ -70,7 +69,24 @@ function ComingSoon() {
             DIGIMOTIVE
           </span>
         </a>
-        <ContactDropdown />
+        <div className="flex shrink-0 items-center gap-3">
+          <a
+            href={CALLING_HREF}
+            className="liquid-glass flex shrink-0 items-center gap-2 rounded-[30px] px-5 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-6"
+          >
+            <img src={phoneIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
+            Call
+          </a>
+          <a
+            href={WHATSAPP_HREF}
+            target="_blank"
+            rel="noreferrer"
+            className="liquid-glass flex shrink-0 items-center gap-2 rounded-[30px] px-5 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-6"
+          >
+            <img src={whatsappIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
+            WhatsApp
+          </a>
+        </div>
       </header>
 
       <main className="relative z-10 flex flex-1 items-center justify-center px-6 py-20 md:px-10 lg:px-20">
@@ -124,72 +140,3 @@ function ComingSoon() {
   );
 }
 
-function ContactDropdown() {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const handleClick = (event: MouseEvent) => {
-      if (!containerRef.current?.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    };
-    const handleKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("mousedown", handleClick);
-    document.addEventListener("keydown", handleKey);
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
-      document.removeEventListener("keydown", handleKey);
-    };
-  }, [open]);
-
-  return (
-    <div ref={containerRef} className="relative shrink-0">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        aria-haspopup="menu"
-        aria-controls="contact-menu"
-        className="liquid-glass flex shrink-0 items-center rounded-[30px] px-5 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-6"
-      >
-        Contact
-      </button>
-
-      {open && (
-        <div
-          id="contact-menu"
-          role="menu"
-          aria-label="Contact options"
-          className="liquid-glass-dark animate-fade-rise absolute right-0 top-[calc(100%+10px)] z-50 w-[200px] rounded-[18px] p-2 shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
-        >
-          <a
-            href={CALLING_HREF}
-            role="menuitem"
-            className="relative z-10 flex items-center gap-3 rounded-[14px] px-3 py-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10">
-              <img src={phoneIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
-            </span>
-            <span className="text-[14px] font-semibold">Call</span>
-          </a>
-          <a
-            href={WHATSAPP_HREF}
-            role="menuitem"
-            target="_blank"
-            rel="noreferrer"
-            className="relative z-10 flex items-center gap-3 rounded-[14px] px-3 py-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10">
-              <img src={whatsappIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
-            </span>
-            <span className="text-[14px] font-semibold">WhatsApp</span>
-          </a>
-        </div>
-      )}
-    </div>
-  );
-}
