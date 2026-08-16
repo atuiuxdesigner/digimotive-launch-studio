@@ -184,7 +184,7 @@ function ContactDropdown() {
             className="relative z-10 flex items-center gap-3 rounded-[14px] px-3 py-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10">
-              <img src={whatsappIcon} alt="" aria-hidden="true" className="h-4 w-4" />
+              <img src={whatsappIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
             </span>
             <span className="text-[14px] font-semibold">WhatsApp</span>
           </a>
