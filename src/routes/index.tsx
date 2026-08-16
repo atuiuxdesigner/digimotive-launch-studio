@@ -154,10 +154,9 @@ function ContactDropdown() {
         aria-expanded={open}
         aria-haspopup="menu"
         aria-controls="contact-menu"
-        className="liquid-glass flex shrink-0 items-center gap-2 rounded-[30px] px-4 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-6"
+        className="liquid-glass flex shrink-0 items-center rounded-[30px] px-5 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-6"
       >
-        <img src={phoneIcon} alt="" aria-hidden="true" className="h-3.5 w-3.5 brightness-0 invert" />
-        Call Now
+        Contact
       </button>
 
       {open && (
@@ -165,35 +164,29 @@ function ContactDropdown() {
           id="contact-menu"
           role="menu"
           aria-label="Contact options"
-          className="absolute right-0 top-[calc(100%+10px)] z-50 w-[260px] overflow-hidden rounded-[18px] border border-black/[0.06] bg-white p-2 shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
+          className="animate-fade-rise absolute right-0 top-[calc(100%+10px)] z-50 w-[200px] overflow-hidden rounded-[18px] border border-white/10 bg-white/[0.08] p-2 shadow-[0_12px_40px_rgba(0,0,0,0.25)] backdrop-blur-xl"
         >
           <a
             href={CALLING_HREF}
             role="menuitem"
-            className="flex items-center gap-3 rounded-[14px] px-3 py-3 transition-colors hover:bg-[#5A4FFF]/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FFF]"
+            className="flex items-center gap-3 rounded-[14px] px-3 py-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#5A4FFF]/[0.08]">
-              <img src={phoneIcon} alt="" aria-hidden="true" className="h-4 w-4" />
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10">
+              <img src={phoneIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
             </span>
-            <span className="flex min-w-0 flex-col">
-              <span className="text-[13px] font-semibold text-[#0B0F19]">Call</span>
-              <span className="truncate text-[14px] font-medium text-[#6B7280]">{CALLING_NUMBER}</span>
-            </span>
+            <span className="text-[14px] font-semibold">Call</span>
           </a>
           <a
             href={WHATSAPP_HREF}
             role="menuitem"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-3 rounded-[14px] px-3 py-3 transition-colors hover:bg-[#5A4FFF]/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FFF]"
+            className="flex items-center gap-3 rounded-[14px] px-3 py-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#25D366]/[0.10]">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10">
               <img src={whatsappIcon} alt="" aria-hidden="true" className="h-4 w-4" />
             </span>
-            <span className="flex min-w-0 flex-col">
-              <span className="text-[13px] font-semibold text-[#0B0F19]">WhatsApp</span>
-              <span className="truncate text-[14px] font-medium text-[#6B7280]">{WHATSAPP_NUMBER}</span>
-            </span>
+            <span className="text-[14px] font-semibold">WhatsApp</span>
           </a>
         </div>
       )}
