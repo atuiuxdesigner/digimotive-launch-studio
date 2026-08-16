@@ -1,4 +1,3 @@
-import { useState, useRef, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import pulse from "@/assets/pulse.svg";
