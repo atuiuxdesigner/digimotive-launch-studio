@@ -146,8 +146,8 @@
 }
 
 /* Cinematic glass + motion utilities for the launch page */
-.liquid-glass {
-  background: rgba(255, 255, 255, 0.01);
+.liquid-glass,
+.liquid-glass-dark {
   background-blend-mode: luminosity;
   backdrop-filter: blur(14px);
   border: none;
@@ -156,7 +156,16 @@
   overflow: hidden;
 }
 
-.liquid-glass::before {
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.liquid-glass-dark {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.liquid-glass::before,
+.liquid-glass-dark::before {
   content: "";
   position: absolute;
   inset: 0;
