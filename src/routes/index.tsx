@@ -10,10 +10,8 @@ import facebookIcon from "@/assets/facebook.svg";
 import twitterIcon from "@/assets/twitter.svg";
 import linkedinIcon from "@/assets/linkedin.svg";
 
-/** Visible numbers and destination links. Easy to update. */
-const CALLING_NUMBER = "+91 9834540456";
+/** Contact destination links. */
 const CALLING_HREF = "tel:+919834540456";
-const WHATSAPP_NUMBER = "91  9623880889";
 const WHATSAPP_HREF = "https://wa.me/919623880889";
 
 /** Fullscreen looping background video. */
