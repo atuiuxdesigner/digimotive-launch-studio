@@ -164,12 +164,12 @@ function ContactDropdown() {
           id="contact-menu"
           role="menu"
           aria-label="Contact options"
-          className="animate-fade-rise absolute right-0 top-[calc(100%+10px)] z-50 w-[200px] overflow-hidden rounded-[18px] border border-white/10 bg-white/[0.08] p-2 shadow-[0_12px_40px_rgba(0,0,0,0.25)] backdrop-blur-xl"
+          className="liquid-glass-dark animate-fade-rise absolute right-0 top-[calc(100%+10px)] z-50 w-[200px] rounded-[18px] p-2 shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
         >
           <a
             href={CALLING_HREF}
             role="menuitem"
-            className="flex items-center gap-3 rounded-[14px] px-3 py-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="relative z-10 flex items-center gap-3 rounded-[14px] px-3 py-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10">
               <img src={phoneIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
@@ -181,7 +181,7 @@ function ContactDropdown() {
             role="menuitem"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-3 rounded-[14px] px-3 py-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="relative z-10 flex items-center gap-3 rounded-[14px] px-3 py-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10">
               <img src={whatsappIcon} alt="" aria-hidden="true" className="h-4 w-4" />
