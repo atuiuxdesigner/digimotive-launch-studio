@@ -70,7 +70,24 @@ function ComingSoon() {
             DIGIMOTIVE
           </span>
         </a>
-        <ContactDropdown />
+        <div className="flex shrink-0 items-center gap-3">
+          <a
+            href={CALLING_HREF}
+            className="liquid-glass flex shrink-0 items-center gap-2 rounded-[30px] px-5 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-6"
+          >
+            <img src={phoneIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
+            Call
+          </a>
+          <a
+            href={WHATSAPP_HREF}
+            target="_blank"
+            rel="noreferrer"
+            className="liquid-glass flex shrink-0 items-center gap-2 rounded-[30px] px-5 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-6"
+          >
+            <img src={whatsappIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
+            WhatsApp
+          </a>
+        </div>
       </header>
 
       <main className="relative z-10 flex flex-1 items-center justify-center px-6 py-20 md:px-10 lg:px-20">
