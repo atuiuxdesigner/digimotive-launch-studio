@@ -1,20 +1,12 @@
-import * as React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { Header } from "@/components/Header";
 
 import pulse from "@/assets/pulse.svg";
-import logoMark from "@/assets/logo.svg";
-import phoneIcon from "@/assets/phone.svg";
-import whatsappIcon from "@/assets/whatsapp.svg";
 import instagramIcon from "@/assets/instagram.svg";
 import facebookIcon from "@/assets/facebook.svg";
 import twitterIcon from "@/assets/twitter.svg";
 import linkedinIcon from "@/assets/linkedin.svg";
-
-/** Contact destination links. */
-const CALLING_HREF = "tel:+919834540456";
-const WHATSAPP_HREF = "https://wa.me/919623880889";
 
 /** Fullscreen looping background video. */
 const BACKGROUND_VIDEO =
