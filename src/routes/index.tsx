@@ -61,34 +61,7 @@ function ComingSoon() {
         tabIndex={-1}
       />
 
-      <header className="relative z-10 flex h-[65px] shrink-0 items-center justify-between border-b border-white/10 px-6 md:px-10 lg:px-20">
-        <a href="/" className="flex min-w-0 items-center gap-3" aria-label="Digimotive home">
-          <span className="liquid-glass grid h-10 w-10 shrink-0 place-items-center rounded-[10px]">
-            <img src={logoMark} alt="" aria-hidden="true" className="h-[24.5px] w-[27px]" />
-          </span>
-          <span className="font-display truncate text-[18px] leading-none tracking-[0.02em] text-white sm:text-[22px]">
-            DIGIMOTIVE
-          </span>
-        </a>
-        <div className="flex shrink-0 items-center gap-3">
-          <a
-            href={CALLING_HREF}
-            className="liquid-glass flex shrink-0 items-center gap-2 rounded-[30px] px-5 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-6"
-          >
-            <img src={phoneIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
-            Call
-          </a>
-          <a
-            href={WHATSAPP_HREF}
-            target="_blank"
-            rel="noreferrer"
-            className="liquid-glass flex shrink-0 items-center gap-2 rounded-[30px] px-5 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-6"
-          >
-            <img src={whatsappIcon} alt="" aria-hidden="true" className="h-4 w-4 brightness-0 invert" />
-            WhatsApp
-          </a>
-        </div>
-      </header>
+      <Header />
 
       <main className="relative z-10 flex flex-1 items-center justify-center px-6 py-20 md:px-10 lg:px-20">
         <div className="relative flex w-full max-w-[800px] flex-col items-center gap-8">
