@@ -13,7 +13,7 @@ const BACKGROUND_VIDEO =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4";
 
 const SOCIAL_LINKS = [
-  { name: "Instagram", href: "#", icon: instagramIcon },
+  { name: "Instagram", href: "https://www.instagram.com/digi_motive_technologies?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==", icon: instagramIcon },
   { name: "Facebook", href: "#", icon: facebookIcon },
   { name: "X", href: "#", icon: twitterIcon },
   { name: "LinkedIn", href: "#", icon: linkedinIcon },
