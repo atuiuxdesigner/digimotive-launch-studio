@@ -34,8 +34,8 @@ function Home() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-gray-100 bg-white">
-        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-20">
+      <header className="sticky top-0 z-50 border-b border-gray-100 bg-white" style={{ height: "65px" }}>
+        <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-20">
           {/* Logo + Brand */}
           <div className="flex items-center gap-3">
             <div className="grid h-10 w-10 place-items-center rounded-[10px] bg-gray-900">
@@ -46,10 +46,11 @@ function Home() {
             </span>
           </div>
 
-          {/* Call Now CTA */}
+          {/* Call Now CTA - Dark pill, 24px h-padding, 12px v-padding, 30px radius */}
           <a
             href={`tel:${PHONE_NUMBER}`}
-            className="inline-flex items-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-105"
+            className="inline-flex items-center gap-2 bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-105"
+            style={{ borderRadius: "30px" }}
             aria-label={`Call ${PHONE_NUMBER}`}
           >
             <svg
@@ -72,7 +73,7 @@ function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative flex min-h-[calc(100vh-64px)] items-center justify-center overflow-hidden bg-white py-20">
+      <section className="relative flex min-h-[calc(100vh-65px)] items-center justify-center overflow-hidden bg-white py-20">
         {/* Ambient Orb Background */}
         <div
           aria-hidden="true"
@@ -81,41 +82,82 @@ function Home() {
           <div className="h-[600px] w-[600px] rounded-full bg-gradient-to-br from-purple-300/30 via-purple-200/20 to-transparent blur-3xl" />
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 flex flex-col items-center text-center">
-          {/* Badge */}
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold uppercase tracking-wider" style={{ backgroundColor: "rgba(90, 79, 255, 0.08)", color: "#5A4FFF" }}>
+        {/* Content - 800px wide, centered, 32px gaps */}
+        <div className="relative z-10 flex flex-col items-center text-center gap-8" style={{ maxWidth: "800px" }}>
+          {/* Badge: 16px h-padding, 6px v-padding, 100px radius, Manrope Bold 13px, 3px tracking, #5A4FFF */}
+          <div 
+            className="inline-flex items-center gap-2 font-bold text-[13px] uppercase"
+            style={{
+              backgroundColor: "rgba(90, 79, 255, 0.08)",
+              color: "#5A4FFF",
+              padding: "6px 16px",
+              borderRadius: "100px",
+              letterSpacing: "0.12em",
+              fontFamily: "'Manrope', sans-serif"
+            }}
+          >
             <span>🚀</span>
-            <span>Launching Soon • Stay Tuned</span>
+            <span>LAUNCHING SOON • STAY TUNED</span>
           </div>
 
-          {/* Main Headline */}
-          <div className="mb-2 flex flex-col items-center gap-0">
-            <h1 className="font-display max-w-3xl text-[76px] font-bold leading-[1.1] tracking-tight text-gray-900">
+          {/* Main Headline: Nova Round Book 76px, line-height 1.1, -1.9px tracking, #0B0F19 */}
+          <div className="flex flex-col items-center gap-0">
+            <h1 
+              className="font-display max-w-3xl text-[76px] font-bold leading-[1.1] text-gray-900"
+              style={{
+                letterSpacing: "-1.9px",
+                fontFamily: "'Nova Round', 'Archivo', sans-serif"
+              }}
+            >
               We are coming{" "}
               <span style={{ color: "#5A4FFF" }}>soon</span>
             </h1>
           </div>
 
-          {/* Decorative Underline */}
-          <div className="mb-8 h-1 w-40 rounded bg-purple-500" style={{ backgroundColor: "#5A4FFF" }} />
+          {/* Decorative Underline: 160x4px, #5A4FFF, radius 2px, gap 8px below */}
+          <div 
+            className="h-1" 
+            style={{
+              width: "160px",
+              height: "4px",
+              backgroundColor: "#5A4FFF",
+              borderRadius: "2px",
+              marginTop: "0px",
+              marginBottom: "8px"
+            }}
+          />
 
-          {/* Supporting Paragraph */}
-          <p className="mb-12 max-w-[700px] text-[20px] leading-[1.6] text-gray-700">
+          {/* Supporting Paragraph: Manrope Regular 20px, line-height 1.6, #6B7280, width 700px */}
+          <p 
+            className="text-[20px] leading-[1.6]"
+            style={{
+              color: "#6B7280",
+              maxWidth: "700px",
+              fontFamily: "'Manrope', sans-serif",
+              fontWeight: "400"
+            }}
+          >
             We're crafting something extraordinary. Digimotive — your Pune-based digital growth partner — is almost ready to help your brand dominate the digital landscape.
           </p>
 
-          {/* Status Pill */}
+          {/* Status Pill: white bg, 1px rgba(90,79,255,0.2) border, 20px h-padding, 10px v-padding, 100px radius, 8px pulse indicator */}
           <div
-            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-gray-900"
+            className="inline-flex items-center gap-2 text-[14px] font-medium text-gray-900"
             style={{
               backgroundColor: "white",
               border: "1px solid rgba(90, 79, 255, 0.2)",
+              padding: "10px 20px",
+              borderRadius: "100px",
+              fontFamily: "'Manrope', sans-serif"
             }}
           >
             <span
-              className="inline-block h-2 w-2 rounded-full animate-pulse"
-              style={{ backgroundColor: "#5A4FFF" }}
+              className="inline-block rounded-full animate-pulse"
+              style={{
+                width: "8px",
+                height: "8px",
+                backgroundColor: "#5A4FFF"
+              }}
               aria-hidden="true"
             />
             Website Under Development
@@ -123,27 +165,53 @@ function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 px-20 py-8 text-white">
+      {/* Footer - Dark #0B0F19, 32px vertical and 80px horizontal padding */}
+      <footer 
+        className="text-white"
+        style={{
+          backgroundColor: "#0B0F19",
+          padding: "32px 80px"
+        }}
+      >
         <div className="mx-auto max-w-[1440px]">
           <div className="flex items-center justify-between">
-            {/* Left: Logo + Copyright */}
+            {/* Left: DIGIMOTIVE in Nova Round Book 20px white + "| © 2026" in Manrope 14px with 60% opacity */}
             <div className="flex items-center gap-3">
               <div className="grid h-10 w-10 place-items-center rounded-[10px] bg-white">
                 <img src={logoMark} alt="" aria-hidden="true" className="h-5 w-5 invert" />
               </div>
-              <span className="font-display text-sm font-bold uppercase tracking-[0.04em]">
-                Digimotive <span className="font-sans font-normal text-white/60">| © 2026</span>
-              </span>
+              <div 
+                className="font-display text-[20px] font-bold uppercase leading-none"
+                style={{
+                  fontFamily: "'Nova Round', 'Archivo', sans-serif"
+                }}
+              >
+                Digimotive{" "}
+                <span 
+                  className="font-sans text-[14px] font-normal"
+                  style={{
+                    color: "rgba(255, 255, 255, 0.6)",
+                    fontFamily: "'Manrope', sans-serif"
+                  }}
+                >
+                  | © 2026
+                </span>
+              </div>
             </div>
 
-            {/* Right: Social Icons */}
+            {/* Right: four 36x36px rounded-square social icon containers, 18px radius, rgba(255,255,255,0.08), 16px icons */}
             <div className="flex items-center gap-3">
               <a
                 href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="grid h-9 w-9 place-items-center rounded-lg transition-colors hover:bg-white/10"
+                className="inline-flex items-center justify-center transition-colors hover:bg-white/20"
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  borderRadius: "18px"
+                }}
                 aria-label="Instagram"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -157,7 +225,13 @@ function Home() {
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="grid h-9 w-9 place-items-center rounded-lg transition-colors hover:bg-white/10"
+                className="inline-flex items-center justify-center transition-colors hover:bg-white/20"
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  borderRadius: "18px"
+                }}
                 aria-label="Facebook"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -169,7 +243,13 @@ function Home() {
                 href={SOCIAL_LINKS.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="grid h-9 w-9 place-items-center rounded-lg transition-colors hover:bg-white/10"
+                className="inline-flex items-center justify-center transition-colors hover:bg-white/20"
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  borderRadius: "18px"
+                }}
                 aria-label="Twitter/X"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -181,7 +261,13 @@ function Home() {
                 href={SOCIAL_LINKS.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="grid h-9 w-9 place-items-center rounded-lg transition-colors hover:bg-white/10"
+                className="inline-flex items-center justify-center transition-colors hover:bg-white/20"
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  borderRadius: "18px"
+                }}
                 aria-label="LinkedIn"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
