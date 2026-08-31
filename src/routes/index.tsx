@@ -267,19 +267,11 @@ function Home() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-20">
           <div className="grid gap-12 lg:grid-cols-[1fr_repeat(3,220px)]">
             <div>
-              <div className="flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-[10px] bg-white">
-                  <img
-                    src={logoMark}
-                    alt=""
-                    aria-hidden="true"
-                    className="h-[19px] w-[21px] invert"
-                  />
-                </span>
-                <span className="font-display text-[22px] font-extrabold uppercase leading-none tracking-[0.12em] text-white">
-                  Digimotive
-                </span>
-              </div>
+              <img
+                src={logoMark}
+                alt="Digimotive"
+                className="h-[34px] w-[38px]"
+              />
               <p className="mt-6 max-w-[380px] text-[15px] leading-[1.6] text-white/60">
                 A global UX/UI design agency dedicated to crafting human-centered digital
                 experiences that drive real results.
