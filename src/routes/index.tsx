@@ -64,7 +64,7 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Services", href: "#services" },
       { label: "About", href: "#about" },
-      { label: "Contact", href: "#contact" },
+      { label: "Contact", href: "mailto:digimotivetechnologies@gmail.com" },
     ],
   },
   {
@@ -72,11 +72,12 @@ const FOOTER_COLUMNS = [
     links: [
       {
         label: "Instagram",
-        href: "https://www.instagram.com/digi_motive_technologies?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==",
+        href: "https://www.instagram.com/digimo_tech?igsi=MWxsaHh3Znd6YmR5dg==",
       },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/digimotive-technologies-237221429/" },
-      { label: "Twitter / X", href: "https://x.com" },
       { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61592978980298" },
+      { label: "WhatsApp", href: "https://wa.me/919623880889" },
+      { label: "Call", href: "tel:+919834540456" },
     ],
   },
   {
@@ -87,6 +88,7 @@ const FOOTER_COLUMNS = [
     ],
   },
 ] as const;
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -263,40 +265,28 @@ function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative overflow-hidden bg-ink pt-24">
+      <footer className="bg-background pt-32 text-foreground">
         <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-20">
-          <div className="grid gap-12 lg:grid-cols-[1fr_repeat(3,220px)]">
+          <div className="grid gap-12 lg:grid-cols-[1fr_repeat(3,300px)]">
             <div>
-              <div className="flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-[10px] bg-white">
-                  <img
-                    src={logoMark}
-                    alt=""
-                    aria-hidden="true"
-                    className="h-[19px] w-[21px] invert"
-                  />
-                </span>
-                <span className="font-display text-[22px] font-extrabold uppercase leading-none tracking-[0.12em] text-white">
-                  Digimotive
-                </span>
-              </div>
-              <p className="mt-6 max-w-[380px] text-[15px] leading-[1.6] text-white/60">
+              <img src={logoMark} alt="Digimotive" className="h-[26px] w-[29px]" />
+              <p className="mt-12 max-w-[420px] text-[16px] leading-[1.75] text-muted-foreground">
                 A global UX/UI design agency dedicated to crafting human-centered digital
                 experiences that drive real results.
               </p>
             </div>
 
             {FOOTER_COLUMNS.map((column) => (
-              <div key={column.heading}>
-                <h3 className="text-[12px] font-bold uppercase tracking-[0.18em] text-white">
-                  {column.heading}
-                </h3>
-                <ul className="mt-6 flex flex-col gap-4">
+              <div key={column.heading} className="lg:pt-[52px]">
+                <ul className="flex flex-col gap-[18px]">
                   {column.links.map((link) => (
                     <li key={link.label}>
                       <a
                         href={link.href}
-                        className="text-[15px] text-white/60 transition-colors hover:text-brand"
+                        {...(link.href.startsWith("http")
+                          ? { target: "_blank", rel: "noreferrer noopener" }
+                          : {})}
+                        className="text-[16px] text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.label}
                       </a>
@@ -307,28 +297,13 @@ function Home() {
             ))}
           </div>
 
-          <div className="mt-20 flex flex-col gap-3 border-t border-white/10 py-8 text-[12px] uppercase tracking-[0.16em] text-white/45 sm:flex-row sm:justify-between">
+          <div className="mt-24 flex flex-col gap-3 border-t border-foreground/20 py-7 text-[12px] uppercase tracking-[0.16em] text-muted-foreground sm:flex-row sm:justify-between">
             <p>© 2026 Digimotive Technologies. All rights reserved.</p>
             <p>Pune, India</p>
           </div>
-
-          <div
-            aria-hidden="true"
-            className="flex select-none items-center gap-8 overflow-hidden pt-10"
-          >
-            <span className="grid h-[110px] w-[110px] shrink-0 place-items-center rounded-[28px] bg-white/10 lg:h-[170px] lg:w-[170px] lg:rounded-[40px]">
-              <img
-                src={logoMark}
-                alt=""
-                className="h-[70px] w-[78px] opacity-25 lg:h-[104px] lg:w-[116px]"
-              />
-            </span>
-            <span className="font-display text-[90px] font-extrabold uppercase leading-none tracking-[0.02em] text-white/10 lg:text-[190px]">
-              Digimotive
-            </span>
-          </div>
         </div>
       </footer>
+
     </div>
   );
 }
