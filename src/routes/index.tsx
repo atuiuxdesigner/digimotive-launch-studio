@@ -64,7 +64,7 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Services", href: "#services" },
       { label: "About", href: "#about" },
-      { label: "Contact", href: "#contact" },
+      { label: "Contact", href: "mailto:digimotivetechnologies@gmail.com" },
     ],
   },
   {
@@ -72,11 +72,12 @@ const FOOTER_COLUMNS = [
     links: [
       {
         label: "Instagram",
-        href: "https://www.instagram.com/digi_motive_technologies?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==",
+        href: "https://www.instagram.com/digimo_tech?igsi=MWxsaHh3Znd6YmR5dg==",
       },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/digimotive-technologies-237221429/" },
-      { label: "Twitter / X", href: "https://x.com" },
       { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61592978980298" },
+      { label: "WhatsApp", href: "https://wa.me/919623880889" },
+      { label: "Call", href: "tel:+919834540456" },
     ],
   },
   {
@@ -87,6 +88,7 @@ const FOOTER_COLUMNS = [
     ],
   },
 ] as const;
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
